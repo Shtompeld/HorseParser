@@ -131,5 +131,6 @@ hp = HorseParser()
 hp.test("https://stroy-podskazka.ru/loshadi/porody/amerikanskaya-miniatyurnaya-loshad/")
 
 sleep(10000)
+#
 # Сбор текста, какого - хз
 hp.close_browser()
