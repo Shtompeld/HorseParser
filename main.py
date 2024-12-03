@@ -173,7 +173,7 @@ class HorseParser:
                 imgs_from_article.append(f"https://{domain}{imgs_from_article_s[i]}{imgs_from_article_r[i]}{imgs_from_article_c[i]}")
                 #Заменяем миниатюры на оригинальные изображения
                 imgs_from_article[i] = (imgs_from_article[i].replace(
-                    re.search(r"(\w+/(\d*))-\d*/",imgs_from_article[i]).group(), "/orig/"))
+                    re.search(r"(\w+/(\d*))-\d*/",imgs_from_article[i]).group(), "orig/"))
 
             #Записываем изображения из статьи
             article["images_from_article"] = imgs_from_article
@@ -196,7 +196,7 @@ class HorseParser:
                                      self.browser, "src")
             # Заменяем миниатюры на оригинальные изображения
             general_images = list((img.replace(
-                re.search(r"(\w+/(\d*))-\d*/", img).group(), "/orig/") for img in general_images))
+                re.search(r"(\w+/(\d*))-\d*/", img).group(), "orig/") for img in general_images))
 
         #Записываем основные изображения
         breed["general_images"] = general_images
