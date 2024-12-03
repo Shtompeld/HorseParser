@@ -183,7 +183,7 @@ class HorseParser:
     def get_breed(self, url):
         if self.browser.current_url != url:
             self.browser.get(url)
-        WebDriverWait(self.browser, 10).until(ec.presence_of_element_located((By.TAG_NAME, "html")))
+        WebDriverWait(self.browser, 100).until(ec.presence_of_element_located((By.TAG_NAME, "html")))
         # Записываем название(удаляя из него лишнее) и характеристики
         breed = {"copyright": url,
                  "name": self.get_breed_name(url).replace("Лошадь ", ""),
