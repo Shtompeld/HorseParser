@@ -7,7 +7,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-
 class HorseParser:
 
     def __init__(self):
@@ -212,23 +211,11 @@ class HorseParser:
         urls=self.get_urls_all_breeds("https://stroy-podskazka.ru/loshadi/porody/")
 
         for u in range(0, len(urls)):
-            print(f"{u+1}/{len(urls)} - {self.get_breed_name(urls[u])}")
-
             breed = self.get_breed(urls[u])
 
             with open(f"outputs/{breed["name"]}.json", "w", encoding="utf-8") as f:
                 json.dump(breed, f, indent=4, ensure_ascii=False)
 
-            #if u%10==0 and u!=0:
-              #  sleep(80)#Вроде бы сайт начинает тупить от кол-ва запросов
-
 hp = HorseParser()
-
-#hp.test("https://stroy-podskazka.ru/loshadi/porody-i-masti/altajskogo-kraya/")
 hp.create_breeds_json()
-
 hp.close_browser()
-
-# with open('result.json', 'r', encoding="utf-8") as json_file:
-#     data = json.load(json_file)
-#     print(data)
